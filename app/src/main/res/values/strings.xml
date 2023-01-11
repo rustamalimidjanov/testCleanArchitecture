@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="get_date_button">Get date</string>
+    <string name="save_date_button">Save date</string>
+</resources>
