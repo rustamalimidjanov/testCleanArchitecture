@@ -26,7 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:textSize="24sp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:hint="@string/test_string"/>
     <Button
         android:id="@+id/saveDateButton"
         android:layout_width="match_parent"
