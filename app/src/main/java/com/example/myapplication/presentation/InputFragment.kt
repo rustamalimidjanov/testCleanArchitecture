@@ -5,13 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.myapplication.data.RepositoryImpl
 import com.example.myapplication.databinding.FragmentInputBinding
 import com.example.myapplication.domain.models.SaveParam
 import com.example.myapplication.domain.usecase.SaveUserNameUseCase
 
 class InputFragment: Fragment() {
     lateinit var binding: FragmentInputBinding
-    private var saveUserNameUseCase = SaveUserNameUseCase()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,6 +25,10 @@ class InputFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+         val userRepositoryImpl = RepositoryImpl(context = requireContext())
+         val saveUserNameUseCase = SaveUserNameUseCase(userRepositoryImpl)
+
         val textView = binding.text
         val editText = binding.editText
         val saveDate = binding.saveDateButton
