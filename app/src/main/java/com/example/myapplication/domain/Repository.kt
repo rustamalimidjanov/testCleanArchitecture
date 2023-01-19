@@ -5,5 +5,5 @@ import com.example.myapplication.domain.models.UserName
 
 interface Repository {
     fun saveName(saveParam: SaveParam): Boolean
-    fun getName(): UserName
+    fun getName(): SaveParam
 }

@@ -5,8 +5,6 @@ import com.example.myapplication.domain.models.SaveParam
 
 class SaveUserNameUseCase(private val userRepository: Repository) {
     fun execute(param: SaveParam):Boolean {
-//        if(param.name.isEmpty()) return false
-//        return true
         return userRepository.saveName(saveParam = param)
     }
 }

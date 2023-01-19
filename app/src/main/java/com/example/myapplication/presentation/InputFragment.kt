@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.myapplication.data.RepositoryImpl
 import com.example.myapplication.databinding.FragmentInputBinding
 import com.example.myapplication.domain.models.SaveParam
+import com.example.myapplication.domain.usecase.GetNameInSharPresUseCase
 import com.example.myapplication.domain.usecase.SaveUserNameUseCase
 
 class InputFragment: Fragment() {
@@ -28,6 +29,7 @@ class InputFragment: Fragment() {
 
          val userRepositoryImpl = RepositoryImpl(context = requireContext())
          val saveUserNameUseCase = SaveUserNameUseCase(userRepositoryImpl)
+        val getNameInSharPresUseCase = GetNameInSharPresUseCase(userRepositoryImpl)
 
         val textView = binding.text
         val editText = binding.editText
@@ -38,7 +40,9 @@ class InputFragment: Fragment() {
             val saveText = editText.text.toString()
             val param = SaveParam(saveText)
             val viewState = saveUserNameUseCase.execute(param = param).toString()
-            textView.text = viewState
+            val showSave = getNameInSharPresUseCase.execute()
+//            textView.text = viewState
+            textView.text = showSave
 
         }
 
