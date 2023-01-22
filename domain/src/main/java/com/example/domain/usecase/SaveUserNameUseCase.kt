@@ -1,7 +1,7 @@
-package com.example.myapplication.domain.usecase
+package com.example.domain.usecase
 
-import com.example.myapplication.domain.Repository
-import com.example.myapplication.domain.models.SaveParam
+import com.example.domain.repository.Repository
+import com.example.domain.models.SaveParam
 
 class SaveUserNameUseCase(private val userRepository: Repository) {
     fun execute(param: SaveParam):Boolean {

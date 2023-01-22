@@ -5,11 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.myapplication.data.RepositoryImpl
+import com.example.myapplication.data.repository.RepositoryImpl
 import com.example.myapplication.databinding.FragmentInputBinding
-import com.example.myapplication.domain.models.SaveParam
-import com.example.myapplication.domain.usecase.GetNameInSharPresUseCase
-import com.example.myapplication.domain.usecase.SaveUserNameUseCase
+import com.example.domain.models.SaveParam
+import com.example.domain.usecase.GetNameInSharPresUseCase
+import com.example.domain.usecase.SaveUserNameUseCase
+import com.example.myapplication.data.storage.SharedPrefImpl
 
 class InputFragment: Fragment() {
     lateinit var binding: FragmentInputBinding
@@ -27,7 +28,7 @@ class InputFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-         val userRepositoryImpl = RepositoryImpl(context = requireContext())
+         val userRepositoryImpl = RepositoryImpl(sharedPref = SharedPrefImpl(context = requireContext()))
          val saveUserNameUseCase = SaveUserNameUseCase(userRepositoryImpl)
         val getNameInSharPresUseCase = GetNameInSharPresUseCase(userRepositoryImpl)
 
